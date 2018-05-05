@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Yejuan Leung 811763017@qq.com",
   "license": "MIT",
+  "bin": {
+    "wechat-app-session": "./index.js"
+  },
   "dependencies": {
     "cookie-signature": "^1.1.0",
     "express-session": "^1.15.6",
