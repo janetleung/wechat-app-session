@@ -1,12 +1,15 @@
 {
   "name": "wechat-app-session",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Simple express session middleware for wechat app",
   "main": "index.js",
   "author": "Yejuan Leung 811763017@qq.com",
   "license": "MIT",
   "bin": {
     "wechat-app-session": "./index.js"
+  },
+  "scripts": {
+    "test": "mocha ./test/session.js"
   },
   "dependencies": {
     "cookie-signature": "^1.1.0",
@@ -15,6 +18,19 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "mocha": "^5.1.1"
+    "chai": "^4.1.2",
+    "express": "^4.16.3",
+    "mocha": "^5.1.1",
+    "supertest": "^3.0.0"
+  },
+  "keywords": [
+    "express",
+    "session",
+    "wechat-app",
+    "weapp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janetleung/wechat-app-session.git"
   }
 }
