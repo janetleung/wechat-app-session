@@ -1,6 +1,6 @@
 # wechat-app-session
 
-[v1.0.0][npm-url]
+[![NPM Version][npm-image]][npm-url]
 
 由于微信小程序没有 cookie 的概念，一般的 session 库并不适用。wechat-app-session 通过校验请求 header 特定字段的方式， 以 express-session 为基础修改成适用于微信小程序场景的 session middleware。
 
@@ -11,7 +11,7 @@ $ npm install wechat-app-session
 $ yarn add wechat-app-session
 ```
 
-## usage
+## Example
 
 ```js
 var express = require('express')
@@ -70,5 +70,6 @@ app.get('/bar', function (req, res, next) {
 
 session 有效期限，选填项。默认为： `24 * 3600 * 1000`。
 
+[npm-image]: https://img.shields.io/npm/v/wechat-app-session.svg
 [npm-url]: https://www.npmjs.com/package/wechat-app-session
 [express-session-url]: https://github.com/expressjs/session/blob/master/README.md#compatible-session-stores
