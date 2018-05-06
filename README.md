@@ -45,6 +45,30 @@ app.get('/bar', function (req, res, next) {
 
 ```
 
+小程序不能利用 cookie 自动存储 session，因此需要小程序端增加本地存储以及发送 session 的处理。简单例子如下：
+
+```js
+// 发送 session
+var session = wx.getStorageSync(LOCALSTORAGE_SESSION_KEY)
+var header = {}
+if (!!session) {
+  header[SESSION_KEY] = session // SESSION_KEY 即为设置的 key
+}
+wx.request({
+  header,
+  url: '/product',
+  success: function() {},
+})
+
+//本地存储 session
+wx.request({
+  url: '/login',
+  success: function(res) {
+    wx.setStorageSync(LOCALSTORAGE_SESSION_KEY, res.header[SESSION_KEY])
+  }
+})
+```
+
 ## API
 
 ### session(options)
@@ -59,6 +83,9 @@ app.get('/bar', function (req, res, next) {
 **key**
 
 选填项，默认值为 `wx_app_session.id`。为请求头部添加的特定 header 字段。要求从微信小程序端发出的请求必须携带此字段，若无则会新生成 session key。
+
+> **info**
+> 需与小程序端代码配合使用，请求头部需携带服务器返回的 session。
 
 **store**
 
